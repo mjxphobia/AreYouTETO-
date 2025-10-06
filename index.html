@@ -3,44 +3,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex, nofollow">
-  <title>TOP SECRET</title>
+  <title>홈</title>
   <style>
-    body { margin:0; font-family: system-ui, Roboto, 'Noto Sans KR', sans-serif; background:#000; color:#111; }
+    /* 배경은 검은색, 카드(상자)는 흰색 */
+    body { margin:0; font-family: system-ui, Roboto, 'Noto Sans KR', sans-serif; background:#f6f7f9; color:#111; }
     .wrap { max-width: 760px; margin: 0 auto; padding: 24px; }
     .card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.25); }
+
+    /* 이미지: 자르지 않고 중앙 표시 */
     .hero { display:flex; justify-content:center; align-items:center; background:#fff; }
-    .hero img { width: 100%; height: auto; object-fit: contain; display:block; margin: 0 auto; max-width: 100%; }
+    .hero img {
+      width: 100%;
+      height: auto;          /* 세로로 늘어나도 됨 */
+      object-fit: contain;   /* 잘리지 않도록 */
+      display:block;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
     .content { padding:24px; text-align:center; }
     .title { margin:0 0 8px; font-size:22px; font-weight:700; }
     .desc  { margin:0 0 20px; line-height:1.6; color:#444; }
+
     .buttons { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+
+    /* 🔶 버튼 디자인: 주황 배경 + 검정 테두리 + 둥근 모서리 (요청 이미지 스타일) */
     .btn {
       display:inline-block;
       padding:12px 24px;
       border-radius:12px;
       text-decoration:none;
       font-weight:700;
-      background:#F5A623;
-      color:#111;
+      background:#F5A623;    /* 주황 */
+      color:#111;            /* 글자 검정 */
       border:1.5px solid #000;
       box-shadow: 0 1px 0 rgba(0,0,0,.35) inset;
       transition: transform .06s ease, filter .06s ease;
     }
     .btn:hover { transform: translateY(-1px); filter: brightness(1.03); }
     .btn:active { transform: translateY(0); filter: brightness(.98); }
+
+    /* 페이지 섹션 기본 숨김 */
+    .view { display:none; }
+    .view.active { display:block; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="card" id="page">
-      <!-- 홈 화면 -->
-      <div id="home">
+    <div class="card">
+
+      <!-- /  (home) -->
+      <div id="view-home" class="view active">
         <div class="hero">
           <img src="static/img/main.jpg" alt="메인 이미지">
         </div>
         <div class="content">
-          <h1 class="title">TOP SECRET?!!!!!!!!!!!!!!!!!</h1>
+          <h1 class="title">TOP SECRET!!!!!!!!!!!!!!!!!</h1>
           <p class="desc">에..엣헴....<br>
           안녕하세요 저승사자님.... 초면에 소리 질러 죄송합니다...<br>
           왜냐하면 지금부터 겪고 보는 모든 정보는 다른 저승사자에게는 초특급 비밀이기 때문입니다.....<br>
@@ -48,31 +66,62 @@
           낮말은 새가 듣고 밤말은 쥐가 듣는다고 하죠.<br>
           자, 그럼 비밀스러운 업무를 할 각오가 되어 있습니까?</p>
           <div class="buttons">
-            <a class="btn" href="#" onclick="showPage('yes')">네!</a>
-            <a class="btn" href="#" onclick="showPage('no')">아니요 딱히..</a>
+            <a class="btn" href="#/yes">네!</a>
+            <a class="btn" href="#/no">아니요 딱히..</a>
           </div>
         </div>
       </div>
 
-      <!-- YES 화면 -->
-      <div id="yes" style="display:none;">
+      <!-- /yes -->
+      <div id="view-yes" class="view">
         <div class="hero">
           <img src="static/img/yes.jpg" alt="네 이미지">
         </div>
         <div class="content">
           <h1 class="title">푸하하..좋습니다!</h1>
-          <p class="desc">그대의 용기를 진작에 알아본 염라대왕님께서 당신을 기다리고 계십니다..<br>
-          그럼 전 이만..(사라지는 효과음)<br><br></p>
+          <p class="desc">그대의 용기를 진작에 알아본 염라대왕님께서 당신을 기다리고 계십니다..<br>그럼 전 이만..(사라지는 효과음) <br> <br> </p>
           <div class="buttons">
-            <a class="btn" href="https://sites.google.com/view/yumlamyeon/%ED%99%88" target="_blank" rel="noopener">
-              염라대왕님이라니! 조금 긴장되는걸?<br> 얼른 대왕님에게 가보자
-            </a>
+            <a class="btn" href="#/yes/detail">염라대왕님이라니! 조금 긴장되는걸?<br> 얼른 대왕님에게 가보자</a>
           </div>
         </div>
       </div>
 
-      <!-- NO 화면 -->
-      <div id="no" style="display:none;">
+      <!-- /yes/detail -->
+      <div id="view-yes-detail" class="view">
+        <div class="content">
+          <h1 class="title">안녕하세요 염라대왕님!</h1>
+          <p class="desc">
+            시키실 업무가 있다고 하셔서 왔습니다.<br>
+            제가 무엇을 하면 될까요?<br>
+            (동영상 수정 예정)
+          </p>
+
+          <!-- ▼ 로컬 동영상 (static/ep1.intro.mp4) -->
+          <video controls style="width:100%; max-width:100%; border-radius:12px;">
+            <source src="static/ep1.intro.mp4" type="video/mp4">
+            동영상을 재생할 수 없습니다.
+          </video>
+
+          <!-- ▼ 유튜브로 붙이고 싶다면 위 <video> 블록을 지우고, 아래 주석을 해제하세요
+          <div style="position:relative; padding-top:56.25%; border-radius:12px; overflow:hidden; margin-top:16px;">
+            <iframe
+              src="https://www.youtube.com/embed/VIDEO_ID"
+              title="YouTube video"
+              style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          -->
+
+          <div class="buttons" style="margin-top:16px;">
+            <a class="btn" href="#/">처음으로</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- /no -->
+      <div id="view-no" class="view">
         <div class="hero">
           <img src="static/img/no.jpg" alt="아니요 이미지">
         </div>
@@ -80,23 +129,44 @@
           <h1 class="title">혹시 에겐남. 아님 에겐녀. 이신가요?</h1>
           <p class="desc">쫄보인건 확실하네요...실망입니다.</p>
           <div class="buttons">
-            <a class="btn" href="#" onclick="showPage('yes')">
-              (부들부들)...쫄보라니!! 내 테토력을 보여주겠어.<br> 자, 비밀임무가 뭐지?!
-            </a>
+            <!-- 필요하면 동작 바꿔도 됨: 현재는 처음으로 -->
+            <a class="btn" href="#/yes">(부들부들)...쫄보라니!! 내 테토력을 보여주겠어.<br> 자, 비밀임무가 뭐지?! </a>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
   <script>
-    function showPage(id) {
-      document.getElementById('home').style.display = 'none';
-      document.getElementById('yes').style.display = 'none';
-      document.getElementById('no').style.display = 'none';
-      document.getElementById(id).style.display = 'block';
-      window.scrollTo(0,0);
+    // 간단한 해시 라우터: #/, #/yes, #/yes/detail, #/no
+    const routes = {
+      '/': { id: 'view-home', title: '홈' },
+      '/yes': { id: 'view-yes', title: '네 페이지' },
+      '/yes/detail': { id: 'view-yes-detail', title: '다음 화면' },
+      '/no': { id: 'view-no', title: '아니요 페이지' },
+    };
+
+    function setActive(route) {
+      for (const key in routes) {
+        const el = document.getElementById(routes[key].id);
+        if (el) el.classList.remove('active');
+      }
+      const target = routes[route] || routes['/'];
+      const view = document.getElementById(target.id);
+      if (view) view.classList.add('active');
+      document.title = target.title || 'Demo';
+      window.scrollTo(0, 0);
     }
+
+    function parseHash() {
+      // 예: "#/yes/detail" → "/yes/detail"
+      const h = location.hash.replace(/^#/, '');
+      return h || '/';
+    }
+
+    window.addEventListener('hashchange', () => setActive(parseHash()));
+    window.addEventListener('DOMContentLoaded', () => setActive(parseHash()));
   </script>
 </body>
 </html>
