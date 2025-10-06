@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>TOP SECRET</title>
+  <style>
+    body { margin:0; font-family: system-ui, Roboto, 'Noto Sans KR', sans-serif; background:#000; color:#111; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 24px; }
+    .card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.25); }
+    .hero { display:flex; justify-content:center; align-items:center; background:#fff; }
+    .hero img { width: 100%; height: auto; object-fit: contain; display:block; margin: 0 auto; max-width: 100%; }
+    .content { padding:24px; text-align:center; }
+    .title { margin:0 0 8px; font-size:22px; font-weight:700; }
+    .desc  { margin:0 0 20px; line-height:1.6; color:#444; }
+    .buttons { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+    .btn {
+      display:inline-block;
+      padding:12px 24px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+      background:#F5A623;
+      color:#111;
+      border:1.5px solid #000;
+      box-shadow: 0 1px 0 rgba(0,0,0,.35) inset;
+      transition: transform .06s ease, filter .06s ease;
+    }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.03); }
+    .btn:active { transform: translateY(0); filter: brightness(.98); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" id="page">
+      <!-- 홈 화면 -->
+      <div id="home">
+        <div class="hero">
+          <img src="static/img/main.jpg" alt="메인 이미지">
+        </div>
+        <div class="content">
+          <h1 class="title">TOP SECRET!!!!!!!!!!!!!!!!!</h1>
+          <p class="desc">에..엣헴....<br>
+          안녕하세요 저승사자님.... 초면에 소리 질러 죄송합니다...<br>
+          왜냐하면 지금부터 겪고 보는 모든 정보는 다른 저승사자에게는 초특급 비밀이기 때문입니다.....<br>
+          당신에게만 특.별.히. 비밀스러운 임무를 부여한 것이니 정보가 새 나가지 않도록 주의 하셔야합니다.<br>
+          낮말은 새가 듣고 밤말은 쥐가 듣는다고 하죠.<br>
+          자, 그럼 비밀스러운 업무를 할 각오가 되어 있습니까?</p>
+          <div class="buttons">
+            <a class="btn" href="#" onclick="showPage('yes')">네!</a>
+            <a class="btn" href="#" onclick="showPage('no')">아니요 딱히..</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- YES 화면 -->
+      <div id="yes" style="display:none;">
+        <div class="hero">
+          <img src="static/img/yes.jpg" alt="네 이미지">
+        </div>
+        <div class="content">
+          <h1 class="title">푸하하..좋습니다!</h1>
+          <p class="desc">그대의 용기를 진작에 알아본 염라대왕님께서 당신을 기다리고 계십니다..<br>
+          그럼 전 이만..(사라지는 효과음)<br><br></p>
+          <div class="buttons">
+            <a class="btn" href="https://sites.google.com/view/yumlamyeon/%ED%99%88" target="_blank" rel="noopener">
+              염라대왕님이라니! 조금 긴장되는걸?<br> 얼른 대왕님에게 가보자
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- NO 화면 -->
+      <div id="no" style="display:none;">
+        <div class="hero">
+          <img src="static/img/no.jpg" alt="아니요 이미지">
+        </div>
+        <div class="content">
+          <h1 class="title">혹시 에겐남. 아님 에겐녀. 이신가요?</h1>
+          <p class="desc">쫄보인건 확실하네요...실망입니다.</p>
+          <div class="buttons">
+            <a class="btn" href="#" onclick="showPage('yes')">
+              (부들부들)...쫄보라니!! 내 테토력을 보여주겠어.<br> 자, 비밀임무가 뭐지?!
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPage(id) {
+      document.getElementById('home').style.display = 'none';
+      document.getElementById('yes').style.display = 'none';
+      document.getElementById('no').style.display = 'none';
+      document.getElementById(id).style.display = 'block';
+      window.scrollTo(0,0);
+    }
+  </script>
+</body>
+</html>
